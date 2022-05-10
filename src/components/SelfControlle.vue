@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive, computed, watch, onMounted } from 'vue'
+import { ref, reactive, computed, watch, onMounted } from 'vue';
 
 // interface Props {
 //   foo: string
@@ -9,5 +9,5 @@ import { ref, reactive, computed, watch, onMounted } from 'vue'
 </script>
 
 <template>
-    <p>我是个人中心</p>
+  <p>我是个人中心</p>
 </template>
