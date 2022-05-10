@@ -11,7 +11,7 @@ import LayoutContent from './components/LayoutContent.vue';
 </script>
 
 <template>
-  <LayoutHeader foo="joesbell" />
+  <LayoutHeader foomsg="joesbell" />
   <LayoutContent> </LayoutContent>
 
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->

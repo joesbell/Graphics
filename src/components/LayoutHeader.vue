@@ -27,13 +27,13 @@ const state = reactive<test>({
 });
 const { name, age } = toRefs(state);
 interface Props {
-  foo: string;
+  foomsg: string;
 }
 
 const props = defineProps<Props>();
-console.log(props.foo);
+console.log(props.foomsg);
 </script>
 
 <template>
-  <div>{{ title }}---{{ name }}---{{ age }}---{{ foo }}</div>
+  <div>{{ title }}---{{ name }}---{{ age }}---{{ foomsg }}</div>
 </template>

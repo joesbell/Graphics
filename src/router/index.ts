@@ -5,12 +5,16 @@ import DayController from '../components/DayController.vue';
 
 const routes = [
   {
-    path: './SelfControlle',
+    path: '/',
+    redirect: '/SelfControlle',
+  },
+  {
+    path: '/SelfControlle',
     name: 'SelfControlle',
     component: SelfControlle,
   },
   {
-    path: './DayController',
+    path: '/DayController',
     name: 'DayController',
     component: DayController,
   },
