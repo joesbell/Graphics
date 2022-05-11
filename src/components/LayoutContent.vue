@@ -1,7 +1,7 @@
 <template>
   <div>
-     <div id="printMe" style="background:red;">
-         <!-- <el-table
+    <div id="printMe" style="background: red">
+      <!-- <el-table
       
       :data="tableData"
       :span-method="arraySpanMethod"
@@ -14,32 +14,27 @@
       <el-table-column prop="amount2" sortable label="Amount 2" />
       <el-table-column prop="amount3" sortable label="Amount 3" />
     </el-table> -->
-    
-     <el-table
-      :data="tableData"
-      :span-method="objectSpanMethod"
-      border
-      style="width: 100%; margin-top: 20px"
-    >
-      <el-table-column prop="id" label="ID" width="180" />
-      <el-table-column prop="name" label="Name" />
-      <el-table-column prop="amount1" label="Amount 1" />
-      <el-table-column prop="amount2" label="Amount 2" />
-      <el-table-column prop="amount3" label="Amount 3" />
-    </el-table>
+
+      <el-table
+        :data="tableData"
+        :span-method="objectSpanMethod"
+        border
+        style="width: 100%; margin-top: 20px"
+      >
+        <el-table-column prop="id" label="ID" width="180" />
+        <el-table-column prop="name" label="Name" />
+        <el-table-column prop="amount1" label="Amount 1" />
+        <el-table-column prop="amount2" label="Amount 2" />
+        <el-table-column prop="amount3" label="Amount 3" />
+      </el-table>
     </div>
 
-     <button v-print="printObj">Print local range</button>
-
-   
-
-
-   
+    <button v-print="printObj">Print local range</button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
+import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults';
 import {
   ref,
   reactive,
@@ -50,18 +45,18 @@ import {
   onMounted,
 } from 'vue';
 interface User {
-  id: string
-  name: string
-  amount1: string
-  amount2: string
-  amount3: number
+  id: string;
+  name: string;
+  amount1: string;
+  amount2: string;
+  amount3: number;
 }
 
 interface SpanMethodProps {
-  row: User
-  column: TableColumnCtx<User>
-  rowIndex: number
-  columnIndex: number
+  row: User;
+  column: TableColumnCtx<User>;
+  rowIndex: number;
+  columnIndex: number;
 }
 
 // const arraySpanMethod = ({
@@ -86,7 +81,7 @@ const objectSpanMethod = ({
   columnIndex,
 }: SpanMethodProps) => {
   console.log(row);
-  
+
   // if (columnIndex === 0) {
   //   if (rowIndex % 2 === 0) {
   //     return {
@@ -100,13 +95,12 @@ const objectSpanMethod = ({
   //     }
   //   }
   // }
-}
-const printObj=ref({
-              id: "printMe",
-              popTitle: 'good print',
-              extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>',
-
-})
+};
+const printObj = ref({
+  id: 'printMe',
+  popTitle: 'good print',
+  extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>',
+});
 const tableData: User[] = [
   {
     id: '12987122',
@@ -143,5 +137,5 @@ const tableData: User[] = [
     amount2: '4.1',
     amount3: 15,
   },
-]
+];
 </script>
