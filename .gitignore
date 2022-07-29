@@ -12,11 +12,8 @@ dist
 dist-ssr
 *.local
 .eslintrc.js
-<<<<<<< HEAD
-=======
 package-lock.json
 
->>>>>>> 27590d1b7926ccddd775e0e4c16f1add6c98f81e
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
