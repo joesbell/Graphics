@@ -8,7 +8,7 @@
 -->
 <script setup lang="ts">
 import { RouterView, RouterLink } from 'vue-router';
-import { ref, reactive, computed, watch, onMounted } from 'vue';
+import { ref, reactive, watch, onMounted } from 'vue';
 defineOptions({
   name: 'Home',
 });
