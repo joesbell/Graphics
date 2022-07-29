@@ -8,7 +8,7 @@
 -->
 <script setup lang="ts">
 import { ref, reactive, computed, watch, onMounted } from 'vue'
-import {box,imgBox} from '@/assets/scss/imp.module.css';
+             import {box,imgBox} from '@/assets/scss/imp.module.css';
 import wchat from '@/assets/WechatIMG1.jpeg?url';
 import dataJson from '@/assets/glob/data.json';
 import MyWorker from '@/assets/worker?worker';
