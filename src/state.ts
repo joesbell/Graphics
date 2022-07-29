@@ -8,6 +8,6 @@
  */
 import { reactive } from 'vue';
 
-export const state=reactive({
-    userId:'123'
-})
+export const state = reactive({
+  userId: '123',
+});

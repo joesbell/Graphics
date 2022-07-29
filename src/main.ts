@@ -8,17 +8,15 @@
  */
 import { createApp } from 'vue';
 import { Router } from './router';
-import {createPinia} from 'pinia';
+import { createPinia } from 'pinia';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import App from './App.vue';
-const modules = import.meta.glob('./assets/glob/*')
+const modules = import.meta.glob('./assets/glob/*');
 
-Object.entries(modules).forEach(([key,val])=>{
-    val().then((module)=>{
-        console.log(module);
-        
-    })
-})
+Object.entries(modules).forEach(([key, val]) => {
+  val().then((module) => {
+    console.log(module);
+  });
+});
 createApp(App).use(createPinia()).use(Router).use(ElementPlus).mount('#app');
- 

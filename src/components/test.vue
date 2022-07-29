@@ -1,20 +1,16 @@
 <script setup lang="ts">
-import { ref, reactive, computed, watch, onMounted } from 'vue'
+import { ref, reactive, computed, watch, onMounted } from 'vue';
 
 defineOptions({
-name:"xxx"
-})
+  name: 'xxx',
+});
 interface Props {
-  foo: string
+  foo: string;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 </script>
 
-<template>
+<template></template>
 
-</template>
-
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

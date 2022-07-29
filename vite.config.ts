@@ -8,6 +8,7 @@
  */
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
+import AutoImport from 'unplugin-auto-import/vite';
 import vue from '@vitejs/plugin-vue';
 import DefineOptions from 'unplugin-vue-define-options/vite';
 import { tr } from 'element-plus/es/locale';
@@ -18,7 +19,34 @@ export default ({ mode }) => {
   console.log(env,mode);
   
   return defineConfig({
-    plugins: [vue(), DefineOptions()],
+    plugins: [
+      vue(),
+       DefineOptions(),
+       AutoImport({
+        include: [
+          /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+          /\.vue$/,
+          /\.vue\?vue/, // .vue
+          /\.md$/ // .md
+        ],
+        imports: [
+          'vue',
+          'vue-router',
+          {
+            vuex: ['useStore']
+          }
+        ],
+        resolvers: [],
+        dts: './auto-imports.d.ts',
+        // eslint报错解决
+        eslintrc: {
+          // 此处为true运行后会生成.eslintrc-auto-import.json  auto-imports.d.ts文件
+          enabled:false, // 此处第一次运行使用true,之后改为false
+          filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+          globalsPropValue: true // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+        }
+      })
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
