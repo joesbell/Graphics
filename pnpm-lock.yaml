@@ -13,7 +13,7 @@ specifiers:
   eslint-plugin-auto-import: ^0.1.1
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-vue: ^9.3.0
-  husky: ^7.0.4
+  husky: ^8.0.1
   lint-staged: ^12.4.1
   pinia: ^2.0.14
   prettier: ^2.6.2
@@ -28,6 +28,7 @@ specifiers:
 
 dependencies:
   element-plus: 2.2.4_vue@3.2.37
+  husky: 8.0.1
   pinia: 2.0.17_vcmyupim4cga7k7f5hngmth5py
   vue: 3.2.37
   vue-router: 4.0.15_vue@3.2.37
@@ -44,7 +45,6 @@ devDependencies:
   eslint-plugin-auto-import: 0.1.1
   eslint-plugin-prettier: 4.0.0_ucegkljdju7q4zmvwxzqoprf3y
   eslint-plugin-vue: 9.3.0_eslint@8.17.0
-  husky: 7.0.4
   lint-staged: 12.5.0
   prettier: 2.6.2
   sass: 1.52.2
@@ -1395,11 +1395,11 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: true
 
-  /husky/7.0.4:
-    resolution: {integrity: sha512-vbaCKN2QLtP/vD4yvs6iz6hBEo6wkSzs8HpRah1Z6aGmF2KW5PdYuAd7uX5a+OyBZHBhd+TFLqgjUgytQr4RvQ==}
-    engines: {node: '>=12'}
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
     hasBin: true
-    dev: true
+    dev: false
 
   /ignore/5.2.0:
     resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}

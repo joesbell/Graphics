@@ -10,13 +10,14 @@
     "lint": "eslint src --fix --ext .js,.ts,.jsx,.tsx,.vue && prettier --write --ignore-unknown"
   },
   "lint-staged": {
-    "src/*.{vue,js,ts,tsx,jsx}": [
+    "*.{vue,js,ts,tsx,jsx}": [
       "eslint --fix",
       "prettier --write --ignore-unknown"
     ]
   },
   "dependencies": {
     "element-plus": "^2.2.0",
+    "husky": "^8.0.1",
     "pinia": "^2.0.14",
     "vue": "^3.2.25",
     "vue-router": "^4.0.15"
@@ -33,7 +34,6 @@
     "eslint-plugin-auto-import": "^0.1.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^9.3.0",
-    "husky": "^7.0.4",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
     "sass": "^1.52.2",

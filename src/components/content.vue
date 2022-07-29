@@ -10,14 +10,7 @@
 import contentChild from './contentChild.vue';
 import { state } from '../state';
 import { useStore } from '@/stores';
-import {
-  ref,
-  reactive,
-  watch,
-  onMounted,
-  toRefs,
-  provide,
-} from 'vue';
+import { ref, reactive, provide } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 const router = useRouter();
 const route = useRoute();
