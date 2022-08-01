@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit --skipLibCheck && vite build",
     "preview": "vite preview",
     "prepare": "husky install",
     "lint": "eslint src --fix --ext .js,.ts,.jsx,.tsx,.vue && prettier --write --ignore-unknown"
@@ -41,6 +41,6 @@
     "unplugin-auto-import": "^0.10.2",
     "unplugin-vue-define-options": "^0.6.1",
     "vite": "^2.9.5",
-    "vue-tsc": "^0.34.7"
+    "vue-tsc": "^0.35.0"
   }
 }

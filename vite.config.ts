@@ -15,83 +15,85 @@ import DefineOptions from 'unplugin-vue-define-options/vite';
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
-  const env = loadEnv(mode, process.cwd());
-  console.log(env, mode);
-  console.log(path.resolve(__dirname, 'src'));
+    // 获取当前环境
+    const env = loadEnv(mode, process.cwd());
+    console.log(env, mode);
+    console.log(path.resolve(__dirname, 'src'));
 
-  return defineConfig({
-    plugins: [
-      vue(),
-      DefineOptions(),
-      AutoImport({
-        include: [
-          /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-          /\.vue$/,
-          /\.vue\?vue/, // .vue
-          /\.md$/, // .md
+    return defineConfig({
+        plugins: [
+            vue(),
+            DefineOptions(),
+            AutoImport({
+                include: [
+                    /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+                    /\.vue$/,
+                    /\.vue\?vue/, // .vue
+                    /\.md$/, // .md
+                ],
+                imports: [
+                    'vue',
+                    'vue-router',
+                    {
+                        vuex: ['useStore'],
+                    },
+                ],
+                resolvers: [],
+                dts: './auto-imports.d.ts',
+                // eslint报错解决
+                eslintrc: {
+                    // 此处为true运行后会生成.eslintrc-auto-import.json  auto-imports.d.ts文件
+                    enabled: false, // 此处第一次运行使用true,之后改为false
+                    filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
+                    globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+                },
+            }),
         ],
-        imports: [
-          'vue',
-          'vue-router',
-          {
-            vuex: ['useStore'],
-          },
-        ],
-        resolvers: [],
-        dts: './auto-imports.d.ts',
-        // eslint报错解决
-        eslintrc: {
-          // 此处为true运行后会生成.eslintrc-auto-import.json  auto-imports.d.ts文件
-          enabled: false, // 此处第一次运行使用true,之后改为false
-          filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-          globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+        build: {
+            target: 'es2015',
         },
-      }),
-    ],
-    build: {
-      target: 'es2015',
-    },
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, 'src'),
-        '@comp': path.resolve(__dirname, 'src/components'),
-      },
-    },
-    // 预构建
-    optimizeDeps: {
-      include: [],
-      exclude: [],
-    },
+        resolve: {
+            alias: {
+                '@': path.resolve(__dirname, 'src'),
+                '@comp': path.resolve(__dirname, 'src/components'),
+            },
+        },
+        // 预构建
+        optimizeDeps: {
+            include: [],
+            exclude: [],
+        },
 
-    base: env.VITE_APP_BASE_URL || '/',
-    css: {
-      // css  Module按名导入
-      modules: {
-        localsConvention: 'camelCaseOnly',
-      },
-      //css预处理
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@import "@/assets/scss/globalVariable.scss";',
-          /*
+        base: env.VITE_APP_BASE_URL || '/',
+        css: {
+            // css  Module按名导入
+            modules: {
+                localsConvention: 'camelCaseOnly',
+            },
+            //css预处理
+            preprocessorOptions: {
+                scss: {
+                    additionalData:
+                        '@import "@/assets/scss/globalVariable.scss";',
+                    /*
             引入var.scss全局预定义变量，
             如果引入多个文件，
             可以使用
             '@import "@/assets/scss/globalVariable1.scss";@import "@/assets/scss/globalVariable2.scss";'
             这种格式
           */
+                },
+            },
         },
-      },
-    },
-    server: {
-      port: 2668,
-      //   proxy:{
-      // 	  '/js':{
-      // 		  target:'xxxx',
-      // 		  changeOrigin:true,
-      // 		  rewrite:(path)=>path.replace(/^\/api/,"")
-      // 	  },
-      //   }
-    },
-  });
+        server: {
+            port: 2668,
+            //   proxy:{
+            // 	  '/js':{
+            // 		  target:'xxxx',
+            // 		  changeOrigin:true,
+            // 		  rewrite:(path)=>path.replace(/^\/api/,"")
+            // 	  },
+            //   }
+        },
+    });
 };
