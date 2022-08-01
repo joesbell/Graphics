@@ -15,33 +15,31 @@ const router = useRouter();
 const route = useRoute();
 console.log(route.matched, router);
 defineOptions({
-  name: 'data-base',
+    name: 'data-base',
 });
 const a = '143';
-
 console.log(a);
-
 const work = new MyWorker();
 work.onmessage = (e) => {
-  console.log(e.data);
+    console.log(e.data);
 };
 const pick = () => {
-  console.log(dataJson);
+    console.log(dataJson);
 };
 </script>
 
 <template>
-  <div class="mainBox">
-    主体内容区
-    <el-button @click="pick">点击</el-button>
-  </div>
-  <div :class="box">
-    <img :class="imgBox" :src="wchat" alt="" />
-  </div>
+    <div class="mainBox">
+        主体内容区
+        <el-button @click="pick">点击</el-button>
+    </div>
+    <div :class="box">
+        <img :class="imgBox" :src="wchat" alt="" />
+    </div>
 </template>
 
 <style scoped lang="scss">
 .mainBox {
-  color: $color;
+    color: $color;
 }
 </style>
