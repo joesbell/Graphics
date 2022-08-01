@@ -11,13 +11,15 @@ import { box, imgBox } from '@/assets/scss/imp.module.css';
 import wchat from '@/assets/WechatIMG1.jpeg?url';
 import dataJson from '@/assets/glob/data.json';
 import MyWorker from '@/assets/worker?worker';
-import { useRoute, useRouter } from 'vue-router';
 const router = useRouter();
 const route = useRoute();
 console.log(route.matched, router);
 defineOptions({
-  name: 'dataBase',
+  name: 'data-base',
 });
+const a = 143;
+console.log(a);
+
 const work = new MyWorker();
 work.onmessage = (e) => {
   console.log(e.data);

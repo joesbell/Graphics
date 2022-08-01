@@ -8,11 +8,12 @@
 -->
 
 <script setup lang="ts">
-import { ref, reactive, computed, watch, onMounted } from 'vue';
+import { ref, reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import type { FormInstance, FormRules } from 'element-plus';
 const router = useRouter();
 const route = useRoute();
+console.log(route);
 
 //  模块热重载监听回调
 if (import.meta.hot) {
@@ -34,11 +35,6 @@ const ruleForm = reactive({
   Phone: '12',
   PassWord: '',
 });
-let count = 0;
-const timer = setInterval(() => {
-  count++;
-  console.log(count);
-}, 1000);
 
 const rules = reactive<FormRules>({
   Phone: [
@@ -54,6 +50,8 @@ const rules = reactive<FormRules>({
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   await formEl?.validate((valid, fields) => {
+    console.log(valid, fields);
+
     if (valid) {
       router.push({
         path: './home',
