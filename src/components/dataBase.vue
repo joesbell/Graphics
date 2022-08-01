@@ -17,7 +17,7 @@ console.log(route.matched, router);
 defineOptions({
   name: 'data-base',
 });
-const a = 143;
+const a = '143';
 
 console.log(a);
 
