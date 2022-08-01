@@ -18,6 +18,7 @@ defineOptions({
   name: 'data-base',
 });
 const a = 143;
+
 console.log(a);
 
 const work = new MyWorker();
